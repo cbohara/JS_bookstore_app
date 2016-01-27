@@ -1,4 +1,4 @@
-// DO NOT WORRY ABOUT LINES 1 THROUGH 47, FOR DIRECTIONS ON HOW TO PROCEED PLEASE READ THE theBookStore.md and/or go to this link: 
+// DO NOT WORRY ABOUT LINES 1 THROUGH 47, FOR DIRECTIONS ON HOW TO PROCEED PLEASE READ THE theBookStore.md and/or go to this link: https://github.com/TelegraphPrep/Week-2-bookstoreApp/blob/master/theBookStore.md
 
 //NOTE: In Javascript, the leading __ in a variable name signifies that this is a variable you probably shouldn't be messing with..
 function __dontWorryAboutThis(){
