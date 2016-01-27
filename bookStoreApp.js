@@ -46,4 +46,59 @@ function testUser(){
 var BookStore = __dontWorryAboutThis();
 var Susan = testUser();
 
-console.log(Susan);
+//!!!!!!!!!!!!!!!!!!!!pseudocode!!!!!!!!!!!!!!!!!!!!!!!!!
+//declare a function that takes a bookname string as a parameter
+    //iterate through the bookStore array
+       //find the title of each book
+       //check if the title matches the bookname
+           //if so, pop up alert box with title, author, and price
+           //ask the user if they want to add the item to their cart
+               //if the user selects yes, add to their cart
+    //if the book isn't found, alert the user that we don't 
+
+//declare a function that takes a bookname string as a parameter
+var cart = [];
+var checkStore = function(title){
+	var holder = [];
+	//iterate through the bookStore array
+	for(var i = 0; i < BookStore.length; i++){
+		//find the title of each book
+    	//check if the title matches the bookname
+    	if(BookStore[i].title === title){
+    		var bookTitle = BookStore[i].title;
+    		holder.push(BookStore[i]);
+    		console.log('Book Title:', bookTitle);
+    		//if so, pop up alert box with title, author, and price
+    		//ask the user if they want to add the item to their cart
+    		var addToCartPrompt  = confirm('We have found the book '+ BookStore[i].title +' by ' + BookStore[i].author + ' and the cost for this book is $' + BookStore[i].price + '. \nWould you like to add this book to your cart?');
+    		//if the user selects yes, add to their cart
+    		if(addToCartPrompt){
+    			cart.push(BookStore[i]);
+    			console.log(cart);
+    		}
+    	}
+    	//if the book isn't found, alert the user that we don't
+    	console.log(holder);
+	}
+	if(holder.length === 0){
+    		alert('We do not have this book');
+    	}
+	return BookStore[i];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
