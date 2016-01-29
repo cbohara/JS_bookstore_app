@@ -81,7 +81,7 @@ checkStore('asdsadf');
 checkStore('Piccadilly Jim');
 checkStore('asdfsdf');
 checkStore('The Commitments');
-// console.log('customerCart after invoking checkStore',customerCart);
+console.log('customerCart after invoking checkStore',customerCart);
 
 //create the method deleteBook and put it on your testUser object (Susan)
 //deleteBook takes a string parameter and checks it against the books in the user's cart
@@ -101,8 +101,21 @@ Susan.deleteBook = function(titleToDelete){
 	console.log(customerCart);
 };
 
-Susan.deleteBook('Cheese');
+// Susan.deleteBook('Cheese');
 
+//create the method clearCart and put it on your testUser object (Susan)
+Susan.clearCart = function(){
+	// clearCart prompts the user as to whether they're SURE they want to clear their cart
+	var confirmClearCart = confirm('Are you sure you want to clear your cart?');
+		//if they confirm yes, delete everything in their cart
+		if(confirmClearCart){
+			customerCart.length = 0;
+		}
+	//inspect the cart to make sure it's empty
+	console.log(customerCart);
+};
+
+// Susan.clearCart();
 
 
 
