@@ -75,13 +75,11 @@ var checkStore = function(title){
 	return BookStore[i];
 }
 
-checkStore('Cheese');
-checkStore('Oblomov');
-checkStore('asdsadf');
-checkStore('Piccadilly Jim');
-checkStore('asdfsdf');
-checkStore('The Commitments');
-console.log('customerCart after invoking checkStore',customerCart);
+// checkStore('Cheese');
+// checkStore('Oblomov');
+// checkStore('Piccadilly Jim');
+// checkStore('The Commitments');
+// console.log('customerCart after invoking checkStore',customerCart);
 
 //create the method deleteBook and put it on your testUser object (Susan)
 //deleteBook takes a string parameter and checks it against the books in the user's cart
@@ -117,9 +115,26 @@ Susan.clearCart = function(){
 
 // Susan.clearCart();
 
+//create a method checkOut and put it on your testUser object (Susan)
+//checkOut adds up the total price of the books in the user's cart and compares it to their balance
+Susan.checkOut = function(){
+	//initialize total variable to determine total sum 
+	var total = 0;
+	//loop through the cart to add each book price to the total sum
+	for(var i = 0; i < customerCart.length; i++){
+		console.log('customerCart',customerCart);
+		total += customerCart[i].price;
+	}
+	//if their balance is higher than the the total of the combined books, let them check out
+	if(total < Susan.balance){
+		alert('You have successfully checked out!');
+	}
+	//if their balance is lower than the total of the combined books, tell them to get their money up and try again later
+	else
+		alert('You do not have sufficient funds to purchase these items.');
+};
 
-
-
+// Susan.checkOut();
 
 
 
