@@ -44,20 +44,12 @@ function testUser(){
 }
 
 var BookStore = __dontWorryAboutThis();
-var Susan = testUser();
+var Susan = new testUser();
 
-//!!!!!!!!!!!!!!!!!!!!pseudocode!!!!!!!!!!!!!!!!!!!!!!!!!
-//declare a function that takes a bookname string as a parameter
-    //iterate through the bookStore array
-       //find the title of each book
-       //check if the title matches the bookname
-           //if so, pop up alert box with title, author, and price
-           //ask the user if they want to add the item to their cart
-               //if the user selects yes, add to their cart
-    //if the book isn't found, alert the user that we don't 
+
+var customerCart = [];
 
 //declare a function that takes a bookname string as a parameter
-var cart = [];
 var checkStore = function(title){
 	var holder = [];
 	//iterate through the bookStore array
@@ -67,32 +59,49 @@ var checkStore = function(title){
     	if(BookStore[i].title === title){
     		var bookTitle = BookStore[i].title;
     		holder.push(BookStore[i]);
-    		console.log('Book Title:', bookTitle);
     		//if so, pop up alert box with title, author, and price
     		//ask the user if they want to add the item to their cart
-    		var addToCartPrompt  = confirm('We have found the book '+ BookStore[i].title +' by ' + BookStore[i].author + ' and the cost for this book is $' + BookStore[i].price + '. \nWould you like to add this book to your cart?');
+    		var addToCartPrompt  = confirm('We have found the book '+ BookStore[i].title +' by ' + BookStore[i].author + ' and the cost for this book is $' + BookStore[i].price.toFixed(2) + '. \nWould you like to add this book to your cart?');
     		//if the user selects yes, add to their cart
     		if(addToCartPrompt){
-    			cart.push(BookStore[i]);
-    			console.log(cart);
+    			customerCart.push(BookStore[i]);
     		}
     	}
-    	//if the book isn't found, alert the user that we don't
-    	console.log(holder);
 	}
+	//if the book isn't found, alert the user that we don't have the book
 	if(holder.length === 0){
-    		alert('We do not have this book');
+    		alert('We do not have this book.');
     	}
 	return BookStore[i];
 }
 
+checkStore('Cheese');
+checkStore('Oblomov');
+checkStore('asdsadf');
+checkStore('Piccadilly Jim');
+checkStore('asdfsdf');
+checkStore('The Commitments');
+// console.log('customerCart after invoking checkStore',customerCart);
 
+//create the method deleteBook and put it on your testUser object (Susan)
+//deleteBook takes a string parameter and checks it against the books in the user's cart
+Susan.deleteBook = function(titleToDelete){
+	//iterate through the cart to determine if the book already exists in the cart
+	for(var i = 0; i < customerCart.length; i++){
+		//if the book is in the cart, ask the user if they're sure they want to delete it using confirm() 
+		if(customerCart[i].title === titleToDelete){
+			var confirmDelete = confirm('Are you sure you want to delete these delete this book from your cart?');
+			//if they do want to delete, take the book out of the cart
+			if(confirmDelete){
+				customerCart.splice(i,1);
+			}
+		}
+	}
+	//inspect the cart to make sure the book was deleted
+	console.log(customerCart);
+};
 
-
-
-
-
-
+Susan.deleteBook('Cheese');
 
 
 
